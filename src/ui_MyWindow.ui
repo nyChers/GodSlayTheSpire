@@ -6,38 +6,126 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>245</width>
-    <height>181</height>
+    <width>496</width>
+    <height>230</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>God</string>
+   <string>GodSlayTheSpire</string>
   </property>
-  <widget class="QPushButton" name="decodeautosave">
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>C:/Users/Chers/Desktop/cute.png</normaloff>C:/Users/Chers/Desktop/cute.png</iconset>
+  </property>
+  <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>30</y>
-     <width>221</width>
-     <height>41</height>
+     <y>20</y>
+     <width>249</width>
+     <height>199</height>
     </rect>
    </property>
-   <property name="text">
-    <string>存档解码到JSon</string>
-   </property>
+   <layout class="QGridLayout" name="gridLayout" columnstretch="0,0">
+    <property name="sizeConstraint">
+     <enum>QLayout::SetDefaultConstraint</enum>
+    </property>
+    <property name="horizontalSpacing">
+     <number>9</number>
+    </property>
+    <item row="1" column="1">
+     <widget class="QPushButton" name="writefile">
+      <property name="text">
+       <string>写回存档</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QLineEdit" name="current_health"/>
+    </item>
+    <item row="5" column="1">
+     <widget class="QLineEdit" name="energy"/>
+    </item>
+    <item row="2" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>血量上限:</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QPushButton" name="openfile">
+      <property name="text">
+       <string>读取存档</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>能量上限:</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>当前血量:</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="max_health"/>
+    </item>
+    <item row="4" column="1">
+     <widget class="QLineEdit" name="gold"/>
+    </item>
+    <item row="4" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>金钱数量:</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
-  <widget class="QPushButton" name="encodeJson">
+  <widget class="QWidget" name="gridLayoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>110</y>
-     <width>221</width>
-     <height>41</height>
+     <x>300</x>
+     <y>80</y>
+     <width>175</width>
+     <height>80</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Json编码为autosave</string>
-   </property>
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="1" column="0">
+     <widget class="QPushButton" name="encodeJson">
+      <property name="text">
+       <string>Json编码为autosave</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QPushButton" name="decodeautosave">
+      <property name="text">
+       <string>存档解码到Json</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

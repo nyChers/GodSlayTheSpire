@@ -18,4 +18,12 @@ def decode(s, key):
 
 
 def encode(s, key):
-    return base64.b64encode(xorWithKey(bytes(s, encoding='utf-8'), bytes(key, encoding='utf-8')))
+    data = s
+    pos = []
+    for i in range(len(data)):
+        if data[i] == "'":
+            pos.append(i)
+    redata = data[:pos[0]] + "\\u0027" + data[pos[0] + 1:pos[1]] + "\\u0027" + data[pos[1] + 1:pos[
+        2]] + "\\u0027" + data[pos[2] + 1:pos[3]] + "\\u0027" + data[pos[3] + 1:]
+
+    return base64.b64encode(xorWithKey(bytes(redata, encoding='utf-8'), bytes(key, encoding='utf-8')))
