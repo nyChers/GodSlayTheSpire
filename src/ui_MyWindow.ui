@@ -6,22 +6,37 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>496</width>
-    <height>230</height>
+    <width>1090</width>
+    <height>849</height>
    </rect>
+  </property>
+  <property name="acceptDrops">
+   <bool>false</bool>
   </property>
   <property name="windowTitle">
    <string>GodSlayTheSpire</string>
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>C:/Users/Chers/Desktop/cute.png</normaloff>C:/Users/Chers/Desktop/cute.png</iconset>
+    <normaloff>cute.ico</normaloff>cute.ico</iconset>
+  </property>
+  <property name="toolTip">
+   <string notr="true"/>
+  </property>
+  <property name="statusTip">
+   <string notr="true"/>
+  </property>
+  <property name="whatsThis">
+   <string notr="true"/>
+  </property>
+  <property name="modal">
+   <bool>false</bool>
   </property>
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>20</y>
+     <x>0</x>
+     <y>10</y>
      <width>249</width>
      <height>199</height>
     </rect>
@@ -104,8 +119,8 @@
   <widget class="QWidget" name="gridLayoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>80</y>
+     <x>860</x>
+     <y>720</y>
      <width>175</width>
      <height>80</height>
     </rect>
@@ -127,7 +142,153 @@
     </item>
    </layout>
   </widget>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>10</y>
+     <width>821</width>
+     <height>421</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>卡牌管理</string>
+   </property>
+   <widget class="QTableWidget" name="curr_card_list">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>690</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAsNeeded</enum>
+    </property>
+    <property name="alternatingRowColors">
+     <bool>true</bool>
+    </property>
+    <property name="selectionMode">
+     <enum>QAbstractItemView::MultiSelection</enum>
+    </property>
+    <property name="selectionBehavior">
+     <enum>QAbstractItemView::SelectRows</enum>
+    </property>
+    <property name="horizontalScrollMode">
+     <enum>QAbstractItemView::ScrollPerPixel</enum>
+    </property>
+    <property name="rowCount">
+     <number>0</number>
+    </property>
+    <property name="columnCount">
+     <number>4</number>
+    </property>
+    <column>
+     <property name="text">
+      <string>Card ID</string>
+     </property>
+     <property name="textAlignment">
+      <set>AlignCenter</set>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>lv.</string>
+     </property>
+     <property name="textAlignment">
+      <set>AlignCenter</set>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Card Name</string>
+     </property>
+     <property name="textAlignment">
+      <set>AlignCenter</set>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>description</string>
+     </property>
+     <property name="textAlignment">
+      <set>AlignCenter</set>
+     </property>
+    </column>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget_3">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>70</y>
+      <width>101</width>
+      <height>251</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_3">
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="card_cancelall">
+       <property name="text">
+        <string>全部取消</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QPushButton" name="card_update">
+       <property name="text">
+        <string>升级选中</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QPushButton" name="card_add">
+       <property name="text">
+        <string>添加卡牌</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QPushButton" name="card_delete">
+       <property name="text">
+        <string>删除选中</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QPushButton" name="card_selectall">
+       <property name="text">
+        <string>全部选中</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QPushButton" name="card_replace">
+       <property name="text">
+        <string>替换选中</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
  </widget>
+ <tabstops>
+  <tabstop>openfile</tabstop>
+  <tabstop>writefile</tabstop>
+  <tabstop>max_health</tabstop>
+  <tabstop>current_health</tabstop>
+  <tabstop>gold</tabstop>
+  <tabstop>energy</tabstop>
+  <tabstop>decodeautosave</tabstop>
+  <tabstop>encodeJson</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
