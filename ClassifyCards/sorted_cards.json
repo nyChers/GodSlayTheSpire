@@ -1,0 +1,1090 @@
+{
+  "armaments": {
+    "type": "skill",
+    "color": "red"
+  },
+  "battletrance": {
+    "type": "skill",
+    "color": "red"
+  },
+  "bloodletting": {
+    "type": "skill",
+    "color": "red"
+  },
+  "burningpact": {
+    "type": "skill",
+    "color": "red"
+  },
+  "defend": {
+    "type": "skill",
+    "color": "green"
+  },
+  "doubletap": {
+    "type": "skill",
+    "color": "red"
+  },
+  "dualwield": {
+    "type": "skill",
+    "color": "red"
+  },
+  "entrench": {
+    "type": "skill",
+    "color": "red"
+  },
+  "exhume": {
+    "type": "skill",
+    "color": "red"
+  },
+  "flamebarrier": {
+    "type": "skill",
+    "color": "red"
+  },
+  "flex": {
+    "type": "skill",
+    "color": "red"
+  },
+  "ghostlyarmor": {
+    "type": "skill",
+    "color": "red"
+  },
+  "havoc": {
+    "type": "skill",
+    "color": "red"
+  },
+  "impervious": {
+    "type": "skill",
+    "color": "red"
+  },
+  "infernalblade": {
+    "type": "skill",
+    "color": "red"
+  },
+  "intimidate": {
+    "type": "skill",
+    "color": "red"
+  },
+  "limitbreak": {
+    "type": "skill",
+    "color": "red"
+  },
+  "offering": {
+    "type": "skill",
+    "color": "red"
+  },
+  "opening": {
+    "type": "skill",
+    "color": "red"
+  },
+  "barricade": {
+    "type": "power",
+    "color": "red"
+  },
+  "berserk": {
+    "type": "power",
+    "color": "red"
+  },
+  "brutality": {
+    "type": "power",
+    "color": "red"
+  },
+  "combust": {
+    "type": "power",
+    "color": "red"
+  },
+  "corruption": {
+    "type": "power",
+    "color": "red"
+  },
+  "darkembrace": {
+    "type": "power",
+    "color": "red"
+  },
+  "demonform": {
+    "type": "power",
+    "color": "red"
+  },
+  "evolve": {
+    "type": "power",
+    "color": "red"
+  },
+  "feelnopain": {
+    "type": "power",
+    "color": "red"
+  },
+  "fire_breathing": {
+    "type": "power",
+    "color": "red"
+  },
+  "inflame": {
+    "type": "power",
+    "color": "red"
+  },
+  "juggernaut": {
+    "type": "power",
+    "color": "red"
+  },
+  "metallicize": {
+    "type": "power",
+    "color": "red"
+  },
+  "rupture": {
+    "type": "power",
+    "color": "red"
+  },
+  "powerthrough": {
+    "type": "skill",
+    "color": "red"
+  },
+  "rage": {
+    "type": "skill",
+    "color": "red"
+  },
+  "secondwind": {
+    "type": "skill",
+    "color": "red"
+  },
+  "seeingred": {
+    "type": "skill",
+    "color": "red"
+  },
+  "sentinel": {
+    "type": "skill",
+    "color": "red"
+  },
+  "shock_wave": {
+    "type": "skill",
+    "color": "red"
+  },
+  "shrugitoff": {
+    "type": "skill",
+    "color": "red"
+  },
+  "spotweakness": {
+    "type": "skill",
+    "color": "red"
+  },
+  "truegrit": {
+    "type": "skill",
+    "color": "red"
+  },
+  "warcry": {
+    "type": "skill",
+    "color": "red"
+  },
+  "anger": {
+    "type": "attack",
+    "color": "red"
+  },
+  "bash": {
+    "type": "attack",
+    "color": "red"
+  },
+  "bite": {
+    "type": "attack",
+    "color": "red"
+  },
+  "bloodforblood": {
+    "type": "attack",
+    "color": "red"
+  },
+  "bludgeon": {
+    "type": "attack",
+    "color": "red"
+  },
+  "bodyslam": {
+    "type": "attack",
+    "color": "red"
+  },
+  "carnage": {
+    "type": "attack",
+    "color": "red"
+  },
+  "clash": {
+    "type": "attack",
+    "color": "red"
+  },
+  "cleave": {
+    "type": "attack",
+    "color": "red"
+  },
+  "clothesline": {
+    "type": "attack",
+    "color": "red"
+  },
+  "drop_kick": {
+    "type": "attack",
+    "color": "red"
+  },
+  "feed": {
+    "type": "attack",
+    "color": "red"
+  },
+  "fiendfire": {
+    "type": "attack",
+    "color": "red"
+  },
+  "headbutt": {
+    "type": "attack",
+    "color": "red"
+  },
+  "heavyblade": {
+    "type": "attack",
+    "color": "red"
+  },
+  "hemokinesis": {
+    "type": "attack",
+    "color": "red"
+  },
+  "immolate": {
+    "type": "attack",
+    "color": "red"
+  },
+  "ironwave": {
+    "type": "attack",
+    "color": "red"
+  },
+  "perfectedstrike": {
+    "type": "attack",
+    "color": "red"
+  },
+  "rampage": {
+    "type": "attack",
+    "color": "red"
+  },
+  "reaper": {
+    "type": "attack",
+    "color": "red"
+  },
+  "searingblow": {
+    "type": "attack",
+    "color": "red"
+  },
+  "uppercut": {
+    "type": "attack",
+    "color": "red"
+  },
+  "wildstrike": {
+    "type": "attack",
+    "color": "red"
+  },
+  "pommelstrike": {
+    "type": "attack",
+    "color": "red"
+  },
+  "pummel": {
+    "type": "attack",
+    "color": "red"
+  },
+  "recklesscharge": {
+    "type": "attack",
+    "color": "red"
+  },
+  "seversoul": {
+    "type": "attack",
+    "color": "red"
+  },
+  "strike": {
+    "type": "attack",
+    "color": "green"
+  },
+  "swordboomerang": {
+    "type": "attack",
+    "color": "red"
+  },
+  "thunderclap": {
+    "type": "attack",
+    "color": "red"
+  },
+  "whirlwind": {
+    "type": "attack",
+    "color": "red"
+  },
+  "aggregate": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "amplify": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "autoshields": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "bootsequence": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "chaos": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "chill": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "conservebattery": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "consume": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "coolheaded": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "darkness": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "doubleenergy": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "dualcast": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "fission": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "forcefield": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "fusion": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "geneticalgorithm": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "glacier": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "leap": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "multicast": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "biasedcognition": {
+    "type": "power",
+    "color": "blue"
+  },
+  "buffer": {
+    "type": "power",
+    "color": "blue"
+  },
+  "defragment": {
+    "type": "power",
+    "color": "blue"
+  },
+  "electrodynamics": {
+    "type": "power",
+    "color": "blue"
+  },
+  "heatsinks": {
+    "type": "power",
+    "color": "blue"
+  },
+  "helloworld": {
+    "type": "power",
+    "color": "blue"
+  },
+  "loop": {
+    "type": "power",
+    "color": "blue"
+  },
+  "rechargingorb": {
+    "type": "power",
+    "color": "blue"
+  },
+  "storm": {
+    "type": "power",
+    "color": "blue"
+  },
+  "overclock": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "rainbow": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "reboot": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "recursion": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "recycle": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "reinforcedbody": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "reprogram": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "seek": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "skim": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "stack": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "steam": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "tempest": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "undo": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "whitenoise": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "zap": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "allforone": {
+    "type": "attack",
+    "color": "blue"
+  },
+  "balllightning": {
+    "type": "attack",
+    "color": "blue"
+  },
+  "barrage": {
+    "type": "attack",
+    "color": "blue"
+  },
+  "beamcell": {
+    "type": "attack",
+    "color": "blue"
+  },
+  "blizzard": {
+    "type": "attack",
+    "color": "blue"
+  },
+  "coldsnap": {
+    "type": "attack",
+    "color": "blue"
+  },
+  "compiledriver": {
+    "type": "attack",
+    "color": "blue"
+  },
+  "coresurge": {
+    "type": "attack",
+    "color": "blue"
+  },
+  "doomandgloom": {
+    "type": "attack",
+    "color": "blue"
+  },
+  "ftl": {
+    "type": "attack",
+    "color": "blue"
+  },
+  "gash": {
+    "type": "attack",
+    "color": "blue"
+  },
+  "gofortheeyes": {
+    "type": "attack",
+    "color": "blue"
+  },
+  "hyperbeam": {
+    "type": "attack",
+    "color": "blue"
+  },
+  "lockon": {
+    "type": "attack",
+    "color": "blue"
+  },
+  "melter": {
+    "type": "attack",
+    "color": "blue"
+  },
+  "meteorstrike": {
+    "type": "attack",
+    "color": "blue"
+  },
+  "sweepingbeam": {
+    "type": "attack",
+    "color": "blue"
+  },
+  "capacitor": {
+    "type": "power",
+    "color": "blue"
+  },
+  "creativeai": {
+    "type": "power",
+    "color": "blue"
+  },
+  "echoform": {
+    "type": "power",
+    "color": "blue"
+  },
+  "machinelearning": {
+    "type": "power",
+    "color": "blue"
+  },
+  "selfrepair": {
+    "type": "power",
+    "color": "blue"
+  },
+  "staticdischarge": {
+    "type": "power",
+    "color": "blue"
+  },
+  "hologram": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "turbo": {
+    "type": "skill",
+    "color": "blue"
+  },
+  "rebound": {
+    "type": "attack",
+    "color": "blue"
+  },
+  "ripandtear": {
+    "type": "attack",
+    "color": "blue"
+  },
+  "scrape": {
+    "type": "attack",
+    "color": "blue"
+  },
+  "streamline": {
+    "type": "attack",
+    "color": "blue"
+  },
+  "sunder": {
+    "type": "attack",
+    "color": "blue"
+  },
+  "thunderstrike": {
+    "type": "attack",
+    "color": "blue"
+  },
+  "acrobatics": {
+    "type": "skill",
+    "color": "green"
+  },
+  "adrenaline": {
+    "type": "skill",
+    "color": "green"
+  },
+  "alchemize": {
+    "type": "skill",
+    "color": "green"
+  },
+  "backflip": {
+    "type": "skill",
+    "color": "green"
+  },
+  "bladedance": {
+    "type": "skill",
+    "color": "green"
+  },
+  "blur": {
+    "type": "skill",
+    "color": "green"
+  },
+  "bouncingflask": {
+    "type": "skill",
+    "color": "green"
+  },
+  "bullettime": {
+    "type": "skill",
+    "color": "green"
+  },
+  "burst": {
+    "type": "skill",
+    "color": "green"
+  },
+  "calculatedgamble": {
+    "type": "skill",
+    "color": "green"
+  },
+  "catalyst": {
+    "type": "skill",
+    "color": "green"
+  },
+  "cloakanddagger": {
+    "type": "skill",
+    "color": "green"
+  },
+  "concentrate": {
+    "type": "skill",
+    "color": "green"
+  },
+  "cripplingpoison": {
+    "type": "skill",
+    "color": "green"
+  },
+  "deadlypoison": {
+    "type": "skill",
+    "color": "green"
+  },
+  "deflect": {
+    "type": "skill",
+    "color": "green"
+  },
+  "distractions": {
+    "type": "skill",
+    "color": "green"
+  },
+  "dodgeandroll": {
+    "type": "skill",
+    "color": "green"
+  },
+  "doppelganger": {
+    "type": "skill",
+    "color": "green"
+  },
+  "escapeplan": {
+    "type": "skill",
+    "color": "green"
+  },
+  "expertise": {
+    "type": "skill",
+    "color": "green"
+  },
+  "hide": {
+    "type": "skill",
+    "color": "green"
+  },
+  "legsweep": {
+    "type": "skill",
+    "color": "green"
+  },
+  "malaise": {
+    "type": "skill",
+    "color": "green"
+  },
+  "nightmare": {
+    "type": "skill",
+    "color": "green"
+  },
+  "athousandcuts": {
+    "type": "power",
+    "color": "green"
+  },
+  "accuracy": {
+    "type": "power",
+    "color": "green"
+  },
+  "after_image": {
+    "type": "power",
+    "color": "green"
+  },
+  "caltrops": {
+    "type": "power",
+    "color": "green"
+  },
+  "envenom": {
+    "type": "power",
+    "color": "green"
+  },
+  "footwork": {
+    "type": "power",
+    "color": "green"
+  },
+  "infiniteblades": {
+    "type": "power",
+    "color": "green"
+  },
+  "noxiousfumes": {
+    "type": "power",
+    "color": "green"
+  },
+  "toolsofthetrade": {
+    "type": "power",
+    "color": "green"
+  },
+  "venomology": {
+    "type": "power",
+    "color": "green"
+  },
+  "welllaidplans": {
+    "type": "power",
+    "color": "green"
+  },
+  "outmaneuver": {
+    "type": "skill",
+    "color": "green"
+  },
+  "phantasmalkiller": {
+    "type": "skill",
+    "color": "green"
+  },
+  "piercingwail": {
+    "type": "skill",
+    "color": "green"
+  },
+  "prepared": {
+    "type": "skill",
+    "color": "green"
+  },
+  "reflex": {
+    "type": "skill",
+    "color": "green"
+  },
+  "setup": {
+    "type": "skill",
+    "color": "green"
+  },
+  "stormofsteel": {
+    "type": "skill",
+    "color": "green"
+  },
+  "survivor": {
+    "type": "skill",
+    "color": "green"
+  },
+  "tactician": {
+    "type": "skill",
+    "color": "green"
+  },
+  "terror": {
+    "type": "skill",
+    "color": "green"
+  },
+  "underhandedstrike": {
+    "type": "attack",
+    "color": "green"
+  },
+  "alloutattack": {
+    "type": "attack",
+    "color": "green"
+  },
+  "backstab": {
+    "type": "attack",
+    "color": "green"
+  },
+  "bane": {
+    "type": "attack",
+    "color": "green"
+  },
+  "choke": {
+    "type": "attack",
+    "color": "green"
+  },
+  "corpseexplosion": {
+    "type": "attack",
+    "color": "green"
+  },
+  "daggerspray": {
+    "type": "attack",
+    "color": "green"
+  },
+  "daggerthrow": {
+    "type": "attack",
+    "color": "green"
+  },
+  "dash": {
+    "type": "attack",
+    "color": "green"
+  },
+  "diediedie": {
+    "type": "attack",
+    "color": "green"
+  },
+  "endlessagony": {
+    "type": "attack",
+    "color": "green"
+  },
+  "eviscerate": {
+    "type": "attack",
+    "color": "green"
+  },
+  "finisher": {
+    "type": "attack",
+    "color": "green"
+  },
+  "flechettes": {
+    "type": "attack",
+    "color": "green"
+  },
+  "flyingknee": {
+    "type": "attack",
+    "color": "green"
+  },
+  "glassknife": {
+    "type": "attack",
+    "color": "green"
+  },
+  "grandfinale": {
+    "type": "attack",
+    "color": "green"
+  },
+  "heelhook": {
+    "type": "attack",
+    "color": "green"
+  },
+  "masterfulstab": {
+    "type": "attack",
+    "color": "green"
+  },
+  "neutralize": {
+    "type": "attack",
+    "color": "green"
+  },
+  "poisonedstab": {
+    "type": "attack",
+    "color": "green"
+  },
+  "predator": {
+    "type": "attack",
+    "color": "green"
+  },
+  "skewer": {
+    "type": "attack",
+    "color": "green"
+  },
+  "slice": {
+    "type": "attack",
+    "color": "green"
+  },
+  "wraithform": {
+    "type": "power",
+    "color": "green"
+  },
+  "quickslash": {
+    "type": "attack",
+    "color": "green"
+  },
+  "riddlewithholes": {
+    "type": "attack",
+    "color": "green"
+  },
+  "suckerpunch": {
+    "type": "attack",
+    "color": "green"
+  },
+  "twinslash": {
+    "type": "attack",
+    "color": "green"
+  },
+  "unload": {
+    "type": "attack",
+    "color": "green"
+  },
+  "apotheosis": {
+    "type": "skill",
+    "color": "colorless"
+  },
+  "bandageup": {
+    "type": "skill",
+    "color": "colorless"
+  },
+  "blind": {
+    "type": "skill",
+    "color": "colorless"
+  },
+  "darkshackles": {
+    "type": "skill",
+    "color": "colorless"
+  },
+  "deepbreath": {
+    "type": "skill",
+    "color": "colorless"
+  },
+  "enlightenment": {
+    "type": "skill",
+    "color": "colorless"
+  },
+  "finesse": {
+    "type": "skill",
+    "color": "colorless"
+  },
+  "ghostly": {
+    "type": "skill",
+    "color": "colorless"
+  },
+  "goodinstincts": {
+    "type": "skill",
+    "color": "colorless"
+  },
+  "jackofalltrades": {
+    "type": "skill",
+    "color": "colorless"
+  },
+  "jax": {
+    "type": "skill",
+    "color": "colorless"
+  },
+  "madness": {
+    "type": "skill",
+    "color": "colorless"
+  },
+  "masterofstrategy": {
+    "type": "skill",
+    "color": "colorless"
+  },
+  "magnetism": {
+    "type": "power",
+    "color": "colorless"
+  },
+  "panache": {
+    "type": "power",
+    "color": "colorless"
+  },
+  "sadisticnature": {
+    "type": "power",
+    "color": "colorless"
+  },
+  "panacea": {
+    "type": "skill",
+    "color": "colorless"
+  },
+  "purity": {
+    "type": "skill",
+    "color": "colorless"
+  },
+  "secrettechnique": {
+    "type": "skill",
+    "color": "colorless"
+  },
+  "secretweapon": {
+    "type": "skill",
+    "color": "colorless"
+  },
+  "thinkingahead": {
+    "type": "skill",
+    "color": "colorless"
+  },
+  "transmutation": {
+    "type": "skill",
+    "color": "colorless"
+  },
+  "trip": {
+    "type": "skill",
+    "color": "colorless"
+  },
+  "dramaticentrance": {
+    "type": "attack",
+    "color": "colorless"
+  },
+  "flashofsteel": {
+    "type": "attack",
+    "color": "colorless"
+  },
+  "mindblast": {
+    "type": "attack",
+    "color": "colorless"
+  },
+  "ritualdagger": {
+    "type": "attack",
+    "color": "colorless"
+  },
+  "swiftstrike": {
+    "type": "attack",
+    "color": "colorless"
+  },
+  "shiv": {
+    "type": "attack",
+    "color": "colorless"
+  },
+  "beta": {
+    "type": "status",
+    "color": "status"
+  },
+  "burn": {
+    "type": "status",
+    "color": "status"
+  },
+  "dazed": {
+    "type": "status",
+    "color": "status"
+  },
+  "slimed": {
+    "type": "status",
+    "color": "status"
+  },
+  "void": {
+    "type": "status",
+    "color": "status"
+  },
+  "wound": {
+    "type": "status",
+    "color": "status"
+  },
+  "ascension": {
+    "type": "curse",
+    "color": "curse"
+  },
+  "clumsy": {
+    "type": "curse",
+    "color": "curse"
+  },
+  "decay": {
+    "type": "curse",
+    "color": "curse"
+  },
+  "doubt": {
+    "type": "curse",
+    "color": "curse"
+  },
+  "injury": {
+    "type": "curse",
+    "color": "curse"
+  },
+  "necronomicurse": {
+    "type": "curse",
+    "color": "curse"
+  },
+  "normality": {
+    "type": "curse",
+    "color": "curse"
+  },
+  "pain": {
+    "type": "curse",
+    "color": "curse"
+  },
+  "parasite": {
+    "type": "curse",
+    "color": "curse"
+  },
+  "pride": {
+    "type": "curse",
+    "color": "curse"
+  },
+  "regret": {
+    "type": "curse",
+    "color": "curse"
+  },
+  "writhe": {
+    "type": "curse",
+    "color": "curse"
+  }
+}
