@@ -13,10 +13,7 @@ with open('cards.atlas', 'r') as f:
 cards = []
 for line in lines:
     if line[:3]=='red' or line[:3]=='blu' or line[:3]=='gre' or line[:3]=='col' or line[:3]=='cur' or line[:3]=='sta':
-        cards.append(line[:-1].lower())
-
-
-
+        cards.append(line[:-1].lower().replace('_', ''))
 
 red = []
 blue = []
@@ -59,9 +56,42 @@ for card in curse:
     tmp = card.split('/')
     dict_cards[tmp[1]] = {'type': tmp[0], 'color': tmp[0]}
 
-import json
-with open('sorted_cards.json', 'w') as f:
-    json.dump(dict_cards, f, indent=2)
-    
+#import json
+#with open('sorted_cards.json', 'w') as f:
+#    json.dump(dict_cards, f, indent=2)
 
-        
+#所有卡牌的数据
+cards_data = {}
+with open('cards.json', 'r', encoding='utf-8') as f:
+    cards_data = json.load(f)
+
+for id in cards_data.keys():
+    s_id = id.lower().replace(' ', '').replace('_', '').replace('.', '')
+    if dict_cards.__contains__(s_id):
+        cards_data[id]['type'] = dict_cards[s_id]['type']
+        cards_data[id]['color'] = dict_cards[s_id]['color']
+    else:
+        pass
+#        print(s_id)
+
+with open('cards_sorted.json', 'w', encoding='utf-8') as f:
+    json.dump(cards_data, f, indent=2, ensure_ascii=False)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
