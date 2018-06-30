@@ -6,6 +6,7 @@ import json
 from PyQt5.QtWidgets import QFileDialog, QTableWidgetItem, QTableWidget, QTableWidgetSelectionRange
 from ui_MyWindow import Ui_Dialog
 from PyQt5 import QtWidgets
+from ui_selectcard import Ui_selectcard
 from PyQt5.QtCore import Qt
 import decode_encode
 
@@ -21,12 +22,15 @@ len_potions = 0
 relics = []
 len_relics = 0
 
-
 class MyWindow(QtWidgets.QDialog):
     def __init__(self, parent=None):
         super(MyWindow, self).__init__(parent)
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
+
+        qdialog_sel_card = QtWidgets.QDialog()
+        ui_sel_card = Ui_selectcard()
+        ui_sel_card.setupUi(qdialog_sel_card)
 
         # 设置按钮连接
         self.ui.decodeautosave.clicked.connect(self.decodeautosave)
@@ -52,7 +56,7 @@ class MyWindow(QtWidgets.QDialog):
 
         # 读取数据
         global cards_data
-        with open('cards.json', 'r', encoding='utf-8') as f:
+        with open('cards_sorted.json', 'r', encoding='utf-8') as f:
             cards_data = json.load(f)
         global relics_data
         with open('relics.json', 'r', encoding='utf-8') as f:
@@ -60,6 +64,12 @@ class MyWindow(QtWidgets.QDialog):
         global potions_data
         with open('potions.json', 'r', encoding='utf-8') as f:
             potions_data = json.load(f)
+
+        # 设置存档未读标记
+        self.is_saver_read = 0
+        for w in self.findChildren((QtWidgets.QPushButton, QtWidgets.QTableWidget, QtWidgets.QLineEdit)):
+            w.setEnabled(0)
+        self.ui.openfile.setEnabled(1)
 
     # 读取存档写到json文件
     def decodeautosave(self):
@@ -113,6 +123,10 @@ class MyWindow(QtWidgets.QDialog):
         global realdata
         realdata = json.loads(s_realdata)
         self.read_display()
+        self.is_saver_read = 1
+        for w in self.findChildren((QtWidgets.QPushButton, QtWidgets.QTableWidget, QtWidgets.QLineEdit)):
+            w.setEnabled(1)
+
 
     # 写回存档
     def writefile(self):
@@ -140,6 +154,10 @@ class MyWindow(QtWidgets.QDialog):
         cards = realdata['cards']
         len_cards = len(cards)
 
+        self.display_cards()
+
+    # 显示卡牌
+    def display_cards(self):
         ui_cardtable = self.ui.curr_card_list
         ui_cardtable.setRowCount(len_cards)
         for i in range(len_cards):
@@ -182,6 +200,8 @@ class MyWindow(QtWidgets.QDialog):
         ui_cardtable = self.ui.curr_card_list
         index = self.get_cardselect()
         index.reverse()
+        global len_cards
+        len_cards -= len(index)
         for i in index:
             cards.pop(i)
         for i in index:
@@ -191,6 +211,12 @@ class MyWindow(QtWidgets.QDialog):
     def card_update(self):
         ui_cardtable = self.ui.curr_card_list
         index = self.get_cardselect()
+        for i in index:
+            cards[i]['upgrades'] = 1
+        self.display_cards()
+
+    # 设置选卡Dialog
+    def get_sel_dialog(self):
         pass
 
     # 替换选中卡牌
@@ -201,4 +227,15 @@ class MyWindow(QtWidgets.QDialog):
 
     # 添加卡牌
     def card_add(self):
+        seldialog = SelDialog()
+        seldialog.exec()
+        seldialog.
         pass
+
+
+class SelDialog(QtWidgets.QDialog):
+    def __init__(self, parent=None):
+        super(SelDialog, self).__init__(parent)
+        self.ui = Ui_selectcard()
+        self.ui.setupUi(self)
+        self.setWindowFlags(Qt.MSWindowsFixedSizeDialogHint | Qt.WindowStaysOnTopHint)
