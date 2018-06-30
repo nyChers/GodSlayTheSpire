@@ -1,2 +1,21 @@
 # GodSlayTheSpire
 This project is used to modify the autosave file of 'Slay The Spire'
+
+---
+
+TODO Attribute:
+- [x] 修改血量上限及血量
+- [x] 修改金钱
+- [x] 修改能量点
+
+TODO Cards:
+- [x] 查看全部卡牌
+- [x] 删除选中卡牌
+- [x] 升级卡牌
+- [ ] 添加卡牌
+- [ ] 替换卡牌
+
+TODO Relics:
+- [ ] 显示拥有遗物
+- [ ] 删除遗物
+- [ ] 添加遗物
