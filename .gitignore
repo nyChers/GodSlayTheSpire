@@ -1,2 +1,12 @@
 .idea/
 venv/
+src/build/main/out00-PKG.toc
+src/build/main/base_library.zip
+src/build/main/main.exe.manifest
+src/build/main/out00-Analysis.toc
+src/build/main/out00-EXE.toc
+src/build/main/out00-PKG.pkg
+src/build/main/out00-PYZ.pyz
+src/build/main/out00-PYZ.toc
+src/build/main/warnmain.txt
+src/build/main/xref-main.html
