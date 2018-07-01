@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>cute.ico</normaloff>cute.ico</iconset>
+    <normaloff>C:/Users/Chers/.designer/backup/cute.ico</normaloff>C:/Users/Chers/.designer/backup/cute.ico</iconset>
   </property>
   <widget class="QTableWidget" name="sel_card_list">
    <property name="geometry">
@@ -48,19 +48,11 @@
     <number>0</number>
    </property>
    <property name="columnCount">
-    <number>4</number>
+    <number>3</number>
    </property>
    <column>
     <property name="text">
      <string>Card ID</string>
-    </property>
-    <property name="textAlignment">
-     <set>AlignCenter</set>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>lv.</string>
     </property>
     <property name="textAlignment">
      <set>AlignCenter</set>

@@ -3,6 +3,8 @@
 # @Author:  NingYu Zhang
 # @Date:    Created on 2018/6/27 18:01
 import json
+from copy import deepcopy
+
 from PyQt5.QtWidgets import QFileDialog, QTableWidgetItem, QTableWidget, QTableWidgetSelectionRange
 from ui_MyWindow import Ui_Dialog
 from PyQt5 import QtWidgets
@@ -21,6 +23,7 @@ potions = []
 len_potions = 0
 relics = []
 len_relics = 0
+
 
 class MyWindow(QtWidgets.QDialog):
     def __init__(self, parent=None):
@@ -127,7 +130,6 @@ class MyWindow(QtWidgets.QDialog):
         for w in self.findChildren((QtWidgets.QPushButton, QtWidgets.QTableWidget, QtWidgets.QLineEdit)):
             w.setEnabled(1)
 
-
     # 写回存档
     def writefile(self):
         self.modify_4Attributes()
@@ -223,19 +225,187 @@ class MyWindow(QtWidgets.QDialog):
     def card_replace(self):
         ui_cardtable = self.ui.curr_card_list
         index = self.get_cardselect()
+        SelDialog.is_add = 0
+        seldialog = SelDialog()
+        seldialog.exec()
         pass
 
     # 添加卡牌
     def card_add(self):
+        SelDialog.is_add = 1
         seldialog = SelDialog()
-        seldialog.exec()
-        seldialog.
-        pass
+        seldialog.exec_()
+        if not seldialog.is_ok:
+            print('no')
+            return
 
 
 class SelDialog(QtWidgets.QDialog):
+    is_add = 1
+    list_add = []
+    dict_curr_display = {}
+
     def __init__(self, parent=None):
         super(SelDialog, self).__init__(parent)
         self.ui = Ui_selectcard()
         self.ui.setupUi(self)
         self.setWindowFlags(Qt.MSWindowsFixedSizeDialogHint | Qt.WindowStaysOnTopHint)
+        self.ui.sel_card_list.setSelectionMode(QTableWidget.SingleSelection)
+        self.ui.cancel_sel_card.clicked.connect(self.close)
+        self.ui.ok_sel_card.clicked.connect(self.btn_ok)
+        self.ui.color_sel_card.activated.connect(self.sel_color)
+        self.ui.type_sel_card.activated.connect(self.sel_type)
+
+        # 是否确认
+        self.is_ok = 0
+
+        # 设置num初值为1
+        if self.is_add:
+            self.ui.num_sel_card.setText('1')
+            self.num_sel = int(self.ui.num_sel_card.text())
+        else:
+            self.ui.num_sel_card.setEnabled(0)
+
+        # 默认显示所有卡牌数据
+        self.ui.sel_card_list.setColumnWidth(0, 170)
+        self.ui.sel_card_list.setColumnWidth(1, 140)
+        self.ui.sel_card_list.setColumnWidth(2, 370)
+        global cards_data
+        self.all_cards = deepcopy(cards_data)
+        lens = len(cards_data)
+        self.ui.sel_card_list.setRowCount(lens)
+        i = -1
+        for k, v in cards_data.items():
+            i += 1
+            self.ui.sel_card_list.setItem(i, 0, QTableWidgetItem(k))
+            self.ui.sel_card_list.setItem(i, 1, QTableWidgetItem(v['NAME']))
+            self.ui.sel_card_list.setItem(i, 2, QTableWidgetItem(v['DESCRIPTION']))
+
+    def btn_ok(self):
+        self.is_ok = 1
+        pass
+
+    def btn_cancel(self):
+        pass
+
+    def sel_color(self, s):
+        global cards_data
+        self.dict_curr_display.clear()
+        if s == 0:
+            self.ui.type_sel_card.clear()
+            lens = len(self.all_cards)
+            self.ui.sel_card_list.setRowCount(lens)
+            i = -1
+            for k, v in self.all_cards.items():
+                i += 1
+                self.ui.sel_card_list.setItem(i, 0, QTableWidgetItem(k))
+                self.ui.sel_card_list.setItem(i, 1, QTableWidgetItem(v['NAME']))
+                self.ui.sel_card_list.setItem(i, 2, QTableWidgetItem(v['DESCRIPTION']))
+        elif s == 1:
+            self.ui.type_sel_card.clear()
+            self.ui.type_sel_card.addItem('ALL')
+            self.ui.type_sel_card.addItem('Attack')
+            self.ui.type_sel_card.addItem('Skill')
+            self.ui.type_sel_card.addItem('Power')
+            for k, v in self.all_cards.items():
+                if v.get('color') == 'red':
+                    self.dict_curr_display[k] = v
+            lens = len(self.dict_curr_display)
+            self.ui.sel_card_list.setRowCount(lens)
+            i = -1
+            for k, v in self.dict_curr_display.items():
+                i += 1
+                self.ui.sel_card_list.setItem(i, 0, QTableWidgetItem(k))
+                self.ui.sel_card_list.setItem(i, 1, QTableWidgetItem(v['NAME']))
+                self.ui.sel_card_list.setItem(i, 2, QTableWidgetItem(v['DESCRIPTION']))
+
+
+
+        elif s == 2:
+            self.ui.type_sel_card.clear()
+            self.ui.type_sel_card.addItem('ALL')
+            self.ui.type_sel_card.addItem('Attack')
+            self.ui.type_sel_card.addItem('Skill')
+            self.ui.type_sel_card.addItem('Power')
+            for k, v in self.all_cards.items():
+                if v.get('color') == 'blue':
+                    self.dict_curr_display[k] = v
+            lens = len(self.dict_curr_display)
+            self.ui.sel_card_list.setRowCount(lens)
+            i = -1
+            for k, v in self.dict_curr_display.items():
+                i += 1
+                self.ui.sel_card_list.setItem(i, 0, QTableWidgetItem(k))
+                self.ui.sel_card_list.setItem(i, 1, QTableWidgetItem(v['NAME']))
+                self.ui.sel_card_list.setItem(i, 2, QTableWidgetItem(v['DESCRIPTION']))
+
+        elif s == 3:
+            self.ui.type_sel_card.clear()
+            self.ui.type_sel_card.addItem('ALL')
+            self.ui.type_sel_card.addItem('Attack')
+            self.ui.type_sel_card.addItem('Skill')
+            self.ui.type_sel_card.addItem('Power')
+            for k, v in self.all_cards.items():
+                if v.get('color') == 'green':
+                    self.dict_curr_display[k] = v
+            lens = len(self.dict_curr_display)
+            self.ui.sel_card_list.setRowCount(lens)
+            i = -1
+            for k, v in self.dict_curr_display.items():
+                i += 1
+                self.ui.sel_card_list.setItem(i, 0, QTableWidgetItem(k))
+                self.ui.sel_card_list.setItem(i, 1, QTableWidgetItem(v['NAME']))
+                self.ui.sel_card_list.setItem(i, 2, QTableWidgetItem(v['DESCRIPTION']))
+
+        elif s == 4:
+            self.ui.type_sel_card.clear()
+            self.ui.type_sel_card.addItem('ALL')
+            self.ui.type_sel_card.addItem('Attack')
+            self.ui.type_sel_card.addItem('Skill')
+            self.ui.type_sel_card.addItem('Power')
+            for k, v in self.all_cards.items():
+                if v.get('color') == 'colorless':
+                    self.dict_curr_display[k] = v
+            lens = len(self.dict_curr_display)
+            self.ui.sel_card_list.setRowCount(lens)
+            i = -1
+            for k, v in self.dict_curr_display.items():
+                i += 1
+                self.ui.sel_card_list.setItem(i, 0, QTableWidgetItem(k))
+                self.ui.sel_card_list.setItem(i, 1, QTableWidgetItem(v['NAME']))
+                self.ui.sel_card_list.setItem(i, 2, QTableWidgetItem(v['DESCRIPTION']))
+
+        else:
+            self.ui.type_sel_card.clear()
+            for k, v in self.all_cards.items():
+                if v.get('color') == 'curse':
+                    self.dict_curr_display[k] = v
+            lens = len(self.dict_curr_display)
+            self.ui.sel_card_list.setRowCount(lens)
+            i = -1
+            for k, v in self.dict_curr_display.items():
+                i += 1
+                self.ui.sel_card_list.setItem(i, 0, QTableWidgetItem(k))
+                self.ui.sel_card_list.setItem(i, 1, QTableWidgetItem(v['NAME']))
+                self.ui.sel_card_list.setItem(i, 2, QTableWidgetItem(v['DESCRIPTION']))
+
+    def sel_type(self, s):
+        self.ui.sel_card_list.setRowCount(len(self.dict_curr_display))
+        if s == 0:
+            i = -1
+            for k, v in self.dict_curr_display.items():
+                i += 1
+                self.ui.sel_card_list.setItem(i, 0, QTableWidgetItem(k))
+                self.ui.sel_card_list.setItem(i, 1, QTableWidgetItem(v['NAME']))
+                self.ui.sel_card_list.setItem(i, 2, QTableWidgetItem(v['DESCRIPTION']))
+        else:
+            self.ui.sel_card_list.clearContents()
+            self.ui.sel_card_list.setRowCount(0)
+            i = -1
+            for k, v in self.dict_curr_display.items():
+                if v.get('type') == self.ui.type_sel_card.currentText().lower():
+                    i += 1
+                    self.ui.sel_card_list.insertRow(i)
+                    self.ui.sel_card_list.setItem(i, 0, QTableWidgetItem(k))
+                    self.ui.sel_card_list.setItem(i, 1, QTableWidgetItem(v['NAME']))
+                    self.ui.sel_card_list.setItem(i, 2, QTableWidgetItem(v['DESCRIPTION']))
