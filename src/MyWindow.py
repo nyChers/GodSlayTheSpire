@@ -58,15 +58,24 @@ class MyWindow(QtWidgets.QDialog):
         self.ui.curr_card_list.setEditTriggers(QTableWidget.NoEditTriggers)
 
         # 读取数据
-        global cards_data
-        with open('cards_sorted.json', 'r', encoding='utf-8') as f:
-            cards_data = json.load(f)
-        global relics_data
-        with open('relics.json', 'r', encoding='utf-8') as f:
-            relics_data = json.load(f)
-        global potions_data
-        with open('potions.json', 'r', encoding='utf-8') as f:
-            potions_data = json.load(f)
+        global cards_data, relics_data, potions_data
+        import data
+        cards_data = data.allcards
+        relics_data = data.allrelics
+        potions_data = data.allpotions
+        # with open('cards_sorted.json', 'r', encoding='utf-8') as f:
+        #     cards_data = json.load(f)
+        # with open('relics.json', 'r', encoding='utf-8') as f:
+        #     relics_data = json.load(f)
+        # with open('potions.json', 'r', encoding='utf-8') as f:
+        #     potions_data = json.load(f)
+        # with open('data.py', 'w', encoding='utf-8') as f:
+        #     f.write('allcards = ')
+        #     f.write(str(cards_data))
+        #     f.write('\nallrelics = ')
+        #     f.write(str(relics_data))
+        #     f.write('\nallpotions = ')
+        #     f.write(str(potions_data))
 
         # 设置存档未读标记
         self.is_saver_read = 0
@@ -226,7 +235,6 @@ class MyWindow(QtWidgets.QDialog):
         seldialog = SelDialog()
         seldialog.exec()
         if not seldialog.is_ok:
-            print('no')
             return
         global cards, len_cards
         for i in index:
@@ -240,7 +248,6 @@ class MyWindow(QtWidgets.QDialog):
         seldialog = SelDialog()
         seldialog.exec_()
         if not seldialog.is_ok:
-            print('no')
             return
         global cards, len_cards
         for i in range(seldialog.num_sel):
@@ -248,6 +255,7 @@ class MyWindow(QtWidgets.QDialog):
         len_cards = len(cards)
         self.display_cards()
         seldialog.destroy()
+
 
 # 添加选择卡牌Dialog
 class SelDialog(QtWidgets.QDialog):
