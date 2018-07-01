@@ -125,10 +125,11 @@ class MyWindow(QtWidgets.QDialog):
         s_realdata = str(b_realdata, 'utf-8')
         global realdata
         realdata = json.loads(s_realdata)
-        self.read_display()
+
         self.is_saver_read = 1
         for w in self.findChildren((QtWidgets.QPushButton, QtWidgets.QTableWidget, QtWidgets.QLineEdit)):
             w.setEnabled(1)
+        self.read_display()
 
     # 写回存档
     def writefile(self):
@@ -217,10 +218,6 @@ class MyWindow(QtWidgets.QDialog):
             cards[i]['upgrades'] = 1
         self.display_cards()
 
-    # 设置选卡Dialog
-    def get_sel_dialog(self):
-        pass
-
     # 替换选中卡牌
     def card_replace(self):
         ui_cardtable = self.ui.curr_card_list
@@ -228,7 +225,14 @@ class MyWindow(QtWidgets.QDialog):
         SelDialog.is_add = 0
         seldialog = SelDialog()
         seldialog.exec()
-        pass
+        if not seldialog.is_ok:
+            print('no')
+            return
+        global cards, len_cards
+        for i in index:
+            cards[i]['id'] = seldialog.id_add
+        self.display_cards()
+        seldialog.destroy()
 
     # 添加卡牌
     def card_add(self):
@@ -238,11 +242,17 @@ class MyWindow(QtWidgets.QDialog):
         if not seldialog.is_ok:
             print('no')
             return
+        global cards, len_cards
+        for i in range(seldialog.num_sel):
+            cards.insert(0, {'upgrades': 0, 'misc': 0, 'id': seldialog.id_add})
+        len_cards = len(cards)
+        self.display_cards()
+        seldialog.destroy()
 
-
+# 添加选择卡牌Dialog
 class SelDialog(QtWidgets.QDialog):
     is_add = 1
-    list_add = []
+    id_add = ''
     dict_curr_display = {}
 
     def __init__(self, parent=None):
@@ -283,7 +293,12 @@ class SelDialog(QtWidgets.QDialog):
 
     def btn_ok(self):
         self.is_ok = 1
-        pass
+        items = self.ui.sel_card_list.selectedItems()
+        self.id_add = items[0].text()
+        if self.is_add:
+            self.num_sel = int(self.ui.num_sel_card.text())
+        # print(self.id_add, self.num_sel)
+        self.close()
 
     def btn_cancel(self):
         pass
