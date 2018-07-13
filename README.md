@@ -17,8 +17,8 @@ TODO Cards:
 
 TODO Relics:
 - [x] 显示拥有遗物
-- [ ] 删除遗物
-- [ ] 添加遗物
+- [x] 删除遗物
+- [x] 添加遗物
 
 TODO Potions:
 - [x] 查看药水

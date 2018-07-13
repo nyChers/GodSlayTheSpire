@@ -9,6 +9,7 @@ from PyQt5.QtWidgets import QFileDialog, QTableWidgetItem, QTableWidget, QTableW
 from ui_MyWindow import Ui_Dialog
 from PyQt5 import QtWidgets
 from ui_selectcard import Ui_selectcard
+from ui_sel_relics import Ui_ui_sel_relics
 from PyQt5.QtCore import Qt
 import decode_encode
 
@@ -47,6 +48,13 @@ class MyWindow(QtWidgets.QDialog):
         self.ui.card_update.clicked.connect(self.card_update)
         self.ui.card_replace.clicked.connect(self.card_replace)
         self.ui.card_add.clicked.connect(self.card_add)
+
+        self.ui.relics_selectall.clicked.connect(self.relics_selectall)
+        self.ui.relics_cancelall.clicked.connect(self.relics_cancelall)
+        self.ui.relics_delete.clicked.connect(self.relics_delete)
+        self.ui.relics_add.clicked.connect(self.relics_add)
+
+        self.ui.add_potion.clicked.connect(self.relics_add)
 
         # 设置cardstable
         # 列宽
@@ -254,8 +262,9 @@ class MyWindow(QtWidgets.QDialog):
         len_cards -= len(index)
         for i in index:
             cards.pop(i)
-        for i in index:
-            ui_cardtable.removeRow(i)
+
+        self.display_cards()
+        self.card_cancelall()
 
     # 升级选中卡牌
     def card_update(self):
@@ -293,6 +302,41 @@ class MyWindow(QtWidgets.QDialog):
         len_cards = len(cards)
         self.display_cards()
         seldialog.destroy()
+
+    # 全选遗物
+    def relics_selectall(self):
+        self.ui.curr_relics_list.setRangeSelected(QTableWidgetSelectionRange(0, 0, len_relics - 1, 3), True)
+
+    # 取消全选遗物
+    def relics_cancelall(self):
+        self.ui.curr_relics_list.setRangeSelected(QTableWidgetSelectionRange(0, 0, len_relics - 1, 3), False)
+
+    # 删除选中遗物
+    def relics_delete(self):
+        r_table = self.ui.curr_relics_list
+        list_items = r_table.selectedItems()
+        cnt_items = len(list_items)
+        cnt_relics = int(cnt_items / 4)
+        index = []
+        for i in range(cnt_relics):
+            index.append(r_table.row(list_items[4 * i]))
+        index.reverse()
+        global relics, len_relics
+        len_relics -= len(index)
+        for i in index:
+            relics.pop(i)
+
+        self.display_relics()
+        self.relics_cancelall()
+
+    # 添加遗物
+    def relics_add(self):
+        adddia = Addrelics()
+        adddia.exec_()
+        self.display_relics()
+
+    def potions_add(self):
+        pass
 
 
 # 添加选择卡牌Dialog
@@ -470,3 +514,67 @@ class SelDialog(QtWidgets.QDialog):
                     self.ui.sel_card_list.setItem(i, 0, QTableWidgetItem(k))
                     self.ui.sel_card_list.setItem(i, 1, QTableWidgetItem(v['NAME']))
                     self.ui.sel_card_list.setItem(i, 2, QTableWidgetItem(v['DESCRIPTION']))
+
+
+# 添加遗物Dialog
+class Addrelics(QtWidgets.QDialog):
+
+    def __init__(self, parent=None):
+        super(Addrelics, self).__init__(parent)
+        self.ui = Ui_ui_sel_relics()
+        self.ui.setupUi(self)
+
+        self.setWindowFlags(Qt.MSWindowsFixedSizeDialogHint | Qt.WindowStaysOnTopHint)
+        self.ui.sel_relics_list.setSelectionMode(QTableWidget.MultiSelection)
+
+        self.ui.sel_relics_list.setColumnWidth(0, 150)
+        self.ui.sel_relics_list.setColumnWidth(1, 100)
+        self.ui.sel_relics_list.setColumnWidth(2, 200)
+        self.ui.sel_relics_list.setColumnWidth(3, 300)
+        # 不可编辑
+        self.ui.sel_relics_list.setEditTriggers(QTableWidget.NoEditTriggers)
+
+        self.ui.text_search.textEdited.connect(self.search)
+        self.ui.btn_back.clicked.connect(self.close)
+        self.ui.btn_add.clicked.connect(self.add)
+
+        self.search('')
+
+    def search(self, s):
+        ui_relicstable = self.ui.sel_relics_list
+        ui_relicstable.setRowCount(0)
+        if s == '':
+            i = -1
+            ui_relicstable.setRowCount(len(relics_data))
+            for k, v in relics_data.items():
+                i += 1
+                ui_relicstable.setItem(i, 0, QTableWidgetItem(k))
+                ui_relicstable.setItem(i, 1, QTableWidgetItem(v['NAME']))
+                ui_relicstable.setItem(i, 2, QTableWidgetItem(v.get('FLAVOR')))
+                ui_relicstable.setItem(i, 3, QTableWidgetItem(str(v['DESCRIPTIONS'])))
+        else:
+            i = 0
+            for k, v in relics_data.items():
+                if s in k or s in v['NAME']:
+                    ui_relicstable.insertRow(i)
+                    ui_relicstable.setItem(i, 0, QTableWidgetItem(k))
+                    ui_relicstable.setItem(i, 1, QTableWidgetItem(v['NAME']))
+                    ui_relicstable.setItem(i, 2, QTableWidgetItem(v.get('FLAVOR')))
+                    ui_relicstable.setItem(i, 3, QTableWidgetItem(str(v['DESCRIPTIONS'])))
+                    i += 1
+
+    def add(self):
+        global relics, len_relics
+        relics_table = self.ui.sel_relics_list
+        sel_items = relics_table.selectedItems()
+        cnt_items = len(sel_items)
+        cnt_relics = int(cnt_items / 4)
+        name = ''
+        cnt = 0
+        for i in range(cnt_relics):
+            id = sel_items[4 * i].text()
+            relics.append(id)
+            len_relics += 1
+            cnt += 1
+            name = sel_items[4*i+1].text()
+        self.ui.msg.setText(name + '等 ' + str(cnt) + '件已添加')
