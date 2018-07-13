@@ -16,13 +16,12 @@ TODO Cards:
 - [x] 替换卡牌
 
 TODO Relics:
-- [ ] 显示拥有遗物
+- [x] 显示拥有遗物
 - [ ] 删除遗物
 - [ ] 添加遗物
 
 TODO Potions:
-- [ ] 查看药水
-- [ ] 删除药水
+- [x] 查看药水
 - [ ] 添加药水
 
 TODO optimization:

@@ -54,8 +54,15 @@ class MyWindow(QtWidgets.QDialog):
         self.ui.curr_card_list.setColumnWidth(1, 50)
         self.ui.curr_card_list.setColumnWidth(2, 140)
         self.ui.curr_card_list.setColumnWidth(3, 300)
+
+        # 设置relicstable的列宽
+        self.ui.curr_relics_list.setColumnWidth(0, 150)
+        self.ui.curr_relics_list.setColumnWidth(1, 100)
+        self.ui.curr_relics_list.setColumnWidth(2, 200)
+        self.ui.curr_relics_list.setColumnWidth(3, 300)
         # 不可编辑
         self.ui.curr_card_list.setEditTriggers(QTableWidget.NoEditTriggers)
+        self.ui.curr_relics_list.setEditTriggers(QTableWidget.NoEditTriggers)
 
         # 读取数据
         global cards_data, relics_data, potions_data
@@ -63,19 +70,6 @@ class MyWindow(QtWidgets.QDialog):
         cards_data = data.allcards
         relics_data = data.allrelics
         potions_data = data.allpotions
-        # with open('cards_sorted.json', 'r', encoding='utf-8') as f:
-        #     cards_data = json.load(f)
-        # with open('relics.json', 'r', encoding='utf-8') as f:
-        #     relics_data = json.load(f)
-        # with open('potions.json', 'r', encoding='utf-8') as f:
-        #     potions_data = json.load(f)
-        # with open('data.py', 'w', encoding='utf-8') as f:
-        #     f.write('allcards = ')
-        #     f.write(str(cards_data))
-        #     f.write('\nallrelics = ')
-        #     f.write(str(relics_data))
-        #     f.write('\nallpotions = ')
-        #     f.write(str(potions_data))
 
         # 设置存档未读标记
         self.is_saver_read = 0
@@ -164,9 +158,18 @@ class MyWindow(QtWidgets.QDialog):
 
         global cards, len_cards
         cards = realdata['cards']
+        global relics, len_relics
+        relics = realdata['relics']
+        global potions, len_potions
+        potions = realdata['potions']
+
+        len_relics = len(relics)
         len_cards = len(cards)
+        len_potions = len(potions)
 
         self.display_cards()
+        self.display_relics()
+        self.display_potions()
 
     # 显示卡牌
     def display_cards(self):
@@ -177,6 +180,41 @@ class MyWindow(QtWidgets.QDialog):
             ui_cardtable.setItem(i, 1, QTableWidgetItem(str(cards[i]['upgrades'])))
             ui_cardtable.setItem(i, 2, QTableWidgetItem(cards_data[cards[i]['id']]['NAME']))
             ui_cardtable.setItem(i, 3, QTableWidgetItem(cards_data[cards[i]['id']]['DESCRIPTION']))
+
+    def display_relics(self):
+        ui_relicstable = self.ui.curr_relics_list
+        ui_relicstable.setRowCount(len_relics)
+        for i in range(len_relics):
+            ui_relicstable.setItem(i, 0, QTableWidgetItem(relics[i]))
+            ui_relicstable.setItem(i, 1, QTableWidgetItem(relics_data[relics[i]]['NAME']))
+            ui_relicstable.setItem(i, 2, QTableWidgetItem(relics_data[relics[i]]['FLAVOR']))
+            ui_relicstable.setItem(i, 3, QTableWidgetItem(str(relics_data[relics[i]]['DESCRIPTIONS'])))
+
+    def display_potions(self):
+        self.ui.potions1.setText('')
+        self.ui.potions1.setToolTip('')
+        self.ui.potions2.setText('')
+        self.ui.potions2.setToolTip('')
+        self.ui.potions3.setText('')
+        self.ui.potions3.setToolTip('')
+        self.ui.potions4.setText('')
+        self.ui.potions4.setToolTip('')
+        self.ui.potions5.setText('')
+        self.ui.potions5.setToolTip('')
+
+        self.ui.potions1.setText(potions[0])
+        self.ui.potions1.setToolTip(potions_data[potions[0]]['NAME'] + str(potions_data[potions[0]]['DESCRIPTIONS']))
+        self.ui.potions2.setText(potions[1])
+        self.ui.potions2.setToolTip(potions_data[potions[1]]['NAME'] + str(potions_data[potions[1]]['DESCRIPTIONS']))
+        self.ui.potions3.setText(potions[2])
+        self.ui.potions3.setToolTip(potions_data[potions[2]]['NAME'] + str(potions_data[potions[2]]['DESCRIPTIONS']))
+        if len_potions > 3:
+            self.ui.potions4.setText(potions[3])
+            self.ui.potions4.setToolTip(
+                potions_data[potions[3]]['NAME'] + str(potions_data[potions[0]]['DESCRIPTIONS']))
+            self.ui.potions5.setText(potions[4])
+            self.ui.potions5.setToolTip(
+                potions_data[potions[4]]['NAME'] + str(potions_data[potions[0]]['DESCRIPTIONS']))
 
     # 修改基础四属性
     def modify_4Attributes(self):

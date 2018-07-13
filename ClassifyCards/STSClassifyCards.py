@@ -4,6 +4,7 @@ Created on Sat Jun 30 03:09:28 2018
 
 @author: NingYu Zhang
 """
+import json
 
 with open('cards.atlas', 'r') as f:
     lines = f.readlines()
@@ -39,12 +40,18 @@ for card in cards:
 dict_cards = {}
 for card in red:
     tmp = card.split('/')
+    if tmp[2] == 'defend' or tmp[2] == 'strike':
+        tmp[2] += 'r'
     dict_cards[tmp[2]] = {'type': tmp[1], 'color': tmp[0]}
 for card in blue:
     tmp = card.split('/')
+    if tmp[2] == 'defend' or tmp[2] == 'strike':
+        tmp[2] += 'b'
     dict_cards[tmp[2]] = {'type': tmp[1], 'color': tmp[0]}
 for card in green:
     tmp = card.split('/')
+    if tmp[2] == 'defend' or tmp[2] == 'strike':
+        tmp[2] += 'g'
     dict_cards[tmp[2]] = {'type': tmp[1], 'color': tmp[0]}
 for card in colorless:
     tmp = card.split('/')
@@ -56,7 +63,6 @@ for card in curse:
     tmp = card.split('/')
     dict_cards[tmp[1]] = {'type': tmp[0], 'color': tmp[0]}
 
-#import json
 #with open('sorted_cards.json', 'w') as f:
 #    json.dump(dict_cards, f, indent=2)
 
@@ -77,6 +83,19 @@ for id in cards_data.keys():
 with open('cards_sorted.json', 'w', encoding='utf-8') as f:
     json.dump(cards_data, f, indent=2, ensure_ascii=False)
 
+with open('cards_sorted.json', 'r', encoding='utf-8') as f:
+    cards_data = json.load(f)
+with open('relics.json', 'r', encoding='utf-8') as f:
+    relics_data = json.load(f)
+with open('potions.json', 'r', encoding='utf-8') as f:
+    potions_data = json.load(f)
+with open('data.py', 'w', encoding='utf-8') as f:
+    f.write('allcards = ')
+    f.write(str(cards_data))
+    f.write('\nallrelics = ')
+    f.write(str(relics_data))
+    f.write('\nallpotions = ')
+    f.write(str(potions_data))
 
 
 
