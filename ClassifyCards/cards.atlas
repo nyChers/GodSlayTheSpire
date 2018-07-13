@@ -74,7 +74,7 @@ blue/skill/darkness
   orig: 250, 190
   offset: 2, 8
   index: -1
-blue/skill/defendb
+blue/skill/defend
   rotate: false
   xy: 2, 922
   size: 244, 182
@@ -389,7 +389,7 @@ green/skill/deadlyPoison
   orig: 250, 190
   offset: 2, 8
   index: -1
-green/skill/defendg
+green/skill/defend
   rotate: false
   xy: 248, 922
   size: 244, 182
@@ -494,7 +494,7 @@ red/skill/burningPact
   orig: 250, 190
   offset: 2, 8
   index: -1
-red/skill/defendr
+red/skill/defend
   rotate: false
   xy: 494, 922
   size: 244, 182
@@ -1360,7 +1360,7 @@ blue/attack/meteorStrike
   orig: 250, 190
   offset: 1, 3
   index: -1
-blue/attack/strikeb
+blue/attack/strike
   rotate: false
   xy: 505, 1516
   size: 249, 187
@@ -1877,7 +1877,7 @@ green/attack/riddleWithHoles
   orig: 250, 190
   offset: 1, 4
   index: -1
-green/attack/strikeg
+green/attack/strike
   rotate: false
   xy: 252, 190
   size: 248, 186
@@ -1933,7 +1933,7 @@ red/attack/severSoul
   orig: 250, 190
   offset: 1, 4
   index: -1
-red/attack/striker
+red/attack/strike
   rotate: false
   xy: 502, 378
   size: 248, 186
