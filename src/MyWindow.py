@@ -5,7 +5,8 @@
 import json
 from copy import deepcopy
 
-from PyQt5.QtWidgets import QFileDialog, QTableWidgetItem, QTableWidget, QTableWidgetSelectionRange
+from PyQt5.QtGui import QCursor
+from PyQt5.QtWidgets import QFileDialog, QTableWidgetItem, QTableWidget, QTableWidgetSelectionRange, QMenu, QAction
 from ui_MyWindow import Ui_Dialog
 from PyQt5 import QtWidgets
 from ui_selectcard import Ui_selectcard
@@ -54,8 +55,6 @@ class MyWindow(QtWidgets.QDialog):
         self.ui.relics_delete.clicked.connect(self.relics_delete)
         self.ui.relics_add.clicked.connect(self.relics_add)
 
-        self.ui.add_potion.clicked.connect(self.relics_add)
-
         # 设置cardstable
         # 列宽
         self.ui.curr_card_list.setColumnWidth(0, 170)
@@ -84,6 +83,18 @@ class MyWindow(QtWidgets.QDialog):
         for w in self.findChildren((QtWidgets.QPushButton, QtWidgets.QTableWidget, QtWidgets.QLineEdit)):
             w.setEnabled(0)
         self.ui.openfile.setEnabled(1)
+
+        self.m = QMenu()
+        self.m.triggered.connect(self.potions_add)
+        for k, v in potions_data.items():
+            qa = QAction(v['NAME'] + '\t\t' + str(v['DESCRIPTIONS']) + '\t\t' + k, self)
+            self.m.addAction(qa)
+        self.ui.potions1.customContextMenuRequested.connect(self.set_potions_menu)
+        self.ui.potions2.customContextMenuRequested.connect(self.set_potions_menu)
+        self.ui.potions3.customContextMenuRequested.connect(self.set_potions_menu)
+        self.ui.potions4.customContextMenuRequested.connect(self.set_potions_menu)
+        self.ui.potions5.customContextMenuRequested.connect(self.set_potions_menu)
+        self.p_potions = 0
 
     # 读取存档写到json文件
     def decodeautosave(self):
@@ -335,9 +346,20 @@ class MyWindow(QtWidgets.QDialog):
         adddia.exec_()
         self.display_relics()
 
-    def potions_add(self):
-        pass
+    def set_potions_menu(self, pos):
+        m = self.m
+        m.exec_(QCursor.pos())
 
+    def potions_add(self, qa):
+        global potions, len_potions
+        name = qa.text().split('\t')[4]
+        if self.p_potions == 3 and len_potions < 5:
+            len_potions = 5
+            potions.append('Potion Slot')
+            potions.append('Potion Slot')
+        potions[self.p_potions] = name
+        self.p_potions = (self.p_potions + 1) % 5
+        self.display_potions()
 
 # 添加选择卡牌Dialog
 class SelDialog(QtWidgets.QDialog):
@@ -576,5 +598,5 @@ class Addrelics(QtWidgets.QDialog):
             relics.append(id)
             len_relics += 1
             cnt += 1
-            name = sel_items[4*i+1].text()
+            name = sel_items[4 * i + 1].text()
         self.ui.msg.setText(name + '等 ' + str(cnt) + '件已添加')

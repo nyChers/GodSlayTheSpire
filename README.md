@@ -1,5 +1,6 @@
 # GodSlayTheSpire
 This project is used to modify the autosave file of 'Slay The Spire'
+#杀戮尖塔 #存档 #修改
 
 ---
 
@@ -22,7 +23,7 @@ TODO Relics:
 
 TODO Potions:
 - [x] 查看药水
-- [ ] 添加药水
+- [X] 添加药水
 
 TODO optimization:
 - [ ] UI优化？

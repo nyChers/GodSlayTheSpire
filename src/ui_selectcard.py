@@ -13,7 +13,7 @@ class Ui_selectcard(object):
         selectcard.setObjectName("selectcard")
         selectcard.resize(727, 1018)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("C:/Users/Chers/.designer/backup/cute.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("cute.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         selectcard.setWindowIcon(icon)
         self.sel_card_list = QtWidgets.QTableWidget(selectcard)
         self.sel_card_list.setGeometry(QtCore.QRect(10, 60, 700, 951))
